@@ -1,0 +1,27 @@
+int led = 4;
+int button = 2;
+int state = 0;
+int pulse_monitor = 7;
+
+
+void setup() {
+ // put your setup code here, to run once:
+ Serial.begin(9600);
+ // initialize digital pin led as an output.
+ pinMode(led, OUTPUT);
+ pinMode(button, INPUT);
+ digitalWrite(led, LOW);   // turn the LED off by making the voltage LOW
+}
+
+
+void loop() {
+// the loop function runs over and over again forever
+ state = digitalRead(button);
+ if (state == 1){
+   digitalWrite(led, HIGH);  // turn the LED on (HIGH is the voltage level)
+   Serial.println(state);
+ }
+ else {
+   digitalWrite(led, LOW);
+ }
+}
